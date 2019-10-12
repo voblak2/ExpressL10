@@ -1,0 +1,50 @@
+{{!-- <h1>Hello {{FirstName}} {{LastName}}</h1>
+<h2>Email: {{Email}}</h2>
+<h3>Username: {{Username}}</h3> --}}
+
+<div id="profile">
+    <div class="row">
+        <div class="column">
+            <h1>Welcome,
+                <br>{{FirstName}} {{LastName}}!</h1>
+        </div>
+        <div class="column">
+            <h3>Username: {{Username}}</h3>
+            <h3>Email: {{Email}}</h3>
+        </div>
+    </div>
+
+
+</div>
+
+<div id="addPost">
+    <h1 id="saySomething">Say Something!</h1>
+
+    <form action="/users/profile/{{UserId}}" method="post">
+        <p id="postLabel">
+            <b>Post Title: </b>
+        </p>
+        <br>
+        <input type="text" name="postTitle" id="postTitle" required>
+        <br>
+        <p id="postLabel">
+            <b>Your Post:</b>
+        </p>
+        <br>
+        <textarea name="postBody" rows="10" cols="30" id="postBody" required></textarea>
+        <br>
+        <div id="postSubmit">
+            <button type="submit" id="postButton">Post!</button>
+        </div>
+    </form>
+</div>
+
+{{#each posts}}
+<div id="postList">
+    <h1>{{PostTitle}}</h1>
+    <p>{{PostBody}}</p>
+    <a href="/users/editPost/{{PostId}}">Edit Post</a>
+</div>
+
+{{/each}}
+<a href=" /users/logout ">Log out</a>

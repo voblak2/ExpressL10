@@ -1,0 +1,65 @@
+<nav class="navbar fixed-top navbar-light" style="background-color: #31c244;" id="navbar">
+    Edit Posts
+</nav><br>
+
+<div class="container">
+
+    <div class="post-details">
+        <h2>{{PostTitle}}</h2>
+        <h4>by: {{Username}}</h4>
+    </div>
+
+    <div class="edit-post">
+
+        <form id="form" data-userid="{{UserId}}" data-postid="{{PostId}}">
+            <div>
+                <label for="postTitle">Title: </label>
+                <input type="text" class="form-control" name="postTitle" id="postTitle" value="{{PostTitle}}">
+            </div>
+            <div>
+                <label for="postBody">Body: </label>
+                <textarea type="text" class="form-control" name="postBody" id="postBody" rows="10"
+                    cols="50">{{PostBody}}</textarea>
+            </div>
+            <div class="container" style="padding:10px;">
+                <div class="row">
+                    <div class="col-sm-3" style="margin-left:160px;">
+                        <button class="btn btn-outline-success" type="submit" id="submitButton">Update Post</button>
+                    </div>
+        </form>
+
+        <div class="col">
+            <button class="btn btn-outline-danger" onclick="onDelete()" id="deleteButton">Delete Post</button>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</div>
+<script>
+    function onSubmit(e) {
+        e.preventDefault();
+        let myForm = $('#form');
+        const postTitle = document.getElementById('postTitle').value;
+        const postBody = document.getElementById('postBody').value;
+        const PostId = form.dataset.postid;
+        const UserId = form.dataset.userid;
+
+        $.ajax({
+            url: '/users/posts/' + PostId,
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({ postTitle: postTitle, postBody: postBody }),
+            method: 'PUT', complete: () => window.location.reload()
+        })
+    }
+    $('#form').submit(onSubmit);
+    function onDelete() {
+        const PostId = form.dataset.postid;
+        const UserId = form.dataset.userid;
+        $.ajax({
+            url: '/users/posts/' + PostId + '/delete',
+            method: 'DELETE', complete: () => window.location = "/users/profile/" + UserId
+        })
+    }
+</script>

@@ -1,0 +1,26 @@
+<nav class="navbar fixed-top navbar-light" style="background-color: #31c244;" id="navbar">
+    Login
+</nav>
+<div class="welcome-box">
+    <br>
+    <h2>Welcome Admin!</h2>
+    <p style="color:rgb(51, 51, 51);">Who's your Admin? Aww, yeah.</p>
+</div>
+
+<br>
+<hr />
+<div class="container">
+
+    <div class="list-group">
+        <h2>Current Users</h2>
+
+
+        {{#each users}}
+        <a href="/users/admin/editUser/{{UserId}}" class="list-group-item 
+  list-group-item-action"> {{FirstName}} {{LastName}} | {{Username}}</a>
+        {{/each}}
+        <br>
+        <a href="/users/logout" style="text-align:center;">Log out</a>
+    </div>
+
+</div>

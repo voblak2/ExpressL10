@@ -1,0 +1,20 @@
+<div id="postList">
+    <h1>Name: {{FirstName}} {{LastName}}</h1>
+    <p>Username: {{Username}}</p>
+    <p>Email: {{Email}}</p>
+    <p>Sign up date: {{createdAt}}</p>
+</div>
+
+<script>
+    function onDelete() {
+        $.ajax({
+            url: '/users/admin/editUser/{{UserId}}/delete',
+            method: 'DELETE', complete: () => window.location = "/users/admin"
+        })
+    }
+</script>
+
+
+<div>
+    <button onclick="onDelete() " id="deleteButton ">Delete User</button>
+</div>

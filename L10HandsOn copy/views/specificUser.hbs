@@ -1,0 +1,39 @@
+<nav class="navbar fixed-top navbar-light" style="background-color: #132226;" id="navbar">
+    Specific User
+</nav>
+<br>
+<div class="user-overview">
+    <h2>User Overview</h2>
+    <p style="font-size: 25px;color:rgb(51, 51, 51);"><br>
+
+        Username: {{Username}} <br>
+        <hr />
+        <strong>Full Name:</strong> {{FirstName}} {{LastName}}
+        <br>
+        <strong>Contact Info </strong><br>
+        <strong>Email: </strong>{{Email}} <br>
+        <strong>User Id: </strong>{{UserId}}
+    </p>
+
+
+    <hr />
+    <script>
+        function onDelete() {
+            $.ajax({
+                url: '/users/admin/editUser/{{UserId}}/delete',
+                method: 'DELETE', complete: () => window.location = "/users/admin"
+            })
+        }
+
+    </script>
+
+
+    <div class="danger-zone">
+        <h3>Danger Zone</h3>
+
+        <div class="button-box1">
+
+            <button class="btn btn-outline-danger" onclick="onDelete()" id="deleteButton">Delete User</button>
+        </div>
+    </div>
+</div>

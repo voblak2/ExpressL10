@@ -1,0 +1,52 @@
+{{!-- <h1>Welcome! Please log in</h1>
+<form id="login" name="login" method="POST" action="/users/login">
+    <div>
+        <label for="name">Username: </label>
+        <input type="text" name="username" required>
+    </div>
+    <div>
+        <label for="name">Password: </label>
+        <input type="text" name="password" required>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form> --}}
+
+<nav class="navbar fixed-top navbar-light" style="background-color: #132226;" id="navbar">
+    Login
+</nav>
+
+<div class='loginBackground'>
+    <div class="login-container">
+        <h1> Login Yo!</h1>
+        <br>
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col align-self-center">
+
+                    <div class="form-itself">
+                        <form class="col-sm-5" id="signin" name="login" method="POST" action="/users/login">
+
+                            <div>
+                                <label for="username">Username: </label>
+                                <input class="form-control" type="text" name="username" required>
+                            </div>
+                            <div>
+                                <label for="name">Password: </label>
+                                <input class="form-control" type="password" name="password" id="myInput" required><br>
+                                <input type="checkbox" onclick="myFunction()"> Show Password
+                            </div>
+
+                            <div class="row">
+                                <div class="col"><button class="btn btn-outline-primary"
+                                        style="margin-top:20px;margin-bottom:20px;" type="submit">Submit</button></div>
+
+                                <div class="col-12">Don't have an account?<br><br><a class="btn btn-outline-success"
+                                        href="/users/signup">Sign Up</a></div>
+                            </div>
+                        </form>
+                    </div>
